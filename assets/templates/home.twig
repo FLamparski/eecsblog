@@ -1,0 +1,9 @@
+{% extends 'master.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    {% include 'post.twig' with {'post': post} %}
+  {% endfor %}
+{% endblock %}

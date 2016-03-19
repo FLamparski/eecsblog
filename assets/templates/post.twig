@@ -1,0 +1,12 @@
+<article class="main">
+  <aside class="post-meta">
+    <div class="author-avatar"{% if post.author.image %} style="background-image: url({{post.author.getImageUrl}})"{% endif %}></div>
+    <div class="post-info">
+      <p><a href="{{post.author.permalink}}" class="author-name">{{post.author.name}}</a></p>
+      <p class="text-muted">Created on <strong>{{post.createdAt|date('Y-m-d')}}</strong>.</p>
+    </div>
+  </aside>
+  <h1><a href="{{post.permalink}}">{{post.title}}</a></h1>
+
+  {{post.content|raw}}
+</article>

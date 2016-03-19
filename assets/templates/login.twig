@@ -1,0 +1,29 @@
+{% extends "master.twig" %}
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+<div class="narrow">
+  <h2>Log In</h2>
+  <form action="login" method="post">
+    <input type="hidden" name="csrf_name" value="{{csrf_name}}" />
+    <input type="hidden" name="csrf_value" value="{{csrf_value}}" />
+    <input type="hidden" name="back" value="{{back}}" />
+    {% if error %}
+    <div class="error">
+      {{ error }}
+    </div>
+    {% endif %}
+    <fieldset>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" value="" autofocus />
+    </fieldset>
+    <fieldset>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" value="" />
+    </fieldset>
+    <div class="text-right">
+      <button type="submit">Log In</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

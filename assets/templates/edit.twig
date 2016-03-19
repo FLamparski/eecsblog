@@ -1,0 +1,37 @@
+{% extends 'master.twig' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+  <h2>Edit Post</h2>
+  <form action="{{site_root}}posts/save" method="post">
+    <input type="hidden" name="csrf_name" value="{{csrf_name}}" />
+    <input type="hidden" name="csrf_value" value="{{csrf_value}}" />
+    <input type="hidden" name="id" value="{{post.id}}" />
+    <fieldset>
+      <label for="title">Post Title:</label>
+      <input type="text" name="title" id="title" value="{{post.title}}" />
+    </fieldset>
+    <fieldset>
+      <label for="slug">URL Slug:</label>
+      <input type="text" name="slug" id="slug" value="{{post.slug}}" {% if post.slug != '' %}disabled{% endif %} />
+    </fieldset>
+    <fieldset>
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" rows="10">{{post.content}}</textarea>
+    </fieldset>
+    <fieldset>
+      <label><input type="checkbox" name="publish" value="1" {% if post.published %}checked{% endif %} /> Publish post</label>
+    </fieldset>
+    <fieldset class="text-right">
+      <button type="submit">Save</button>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', e => document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var disabledInputs = Array.from(this.querySelectorAll('input[disabled]')).forEach(input => input.disabled = false);
+      this.submit();
+    }));
+  </script>
+{% endblock %}

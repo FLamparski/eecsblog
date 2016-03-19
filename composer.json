@@ -1,0 +1,30 @@
+{
+    "name": "filip/blog",
+    "description": "A blog in PHP",
+    "minimum-stability": "dev",
+    "autoload": {
+      "psr-4": {
+        "Filip\\Blog\\": ".",
+        "Filip\\Blog\\Controllers\\": "controllers/",
+        "Filip\\Blog\\Models\\": "models/",
+        "Filip\\Blog\\Persist\\": "persist/",
+        "Filip\\Blog\\Middleware\\": "middleware/"
+      },
+      "files": [
+        "functional.php"
+      ]
+    },
+    "require": {
+        "slim/slim": "^3.0",
+        "twig/twig": "^1.24",
+        "mnapoli/php-di": "5.0.x-dev@dev",
+        "psy/psysh": "^0.6.1",
+        "slim/csrf": "^0.6.0"
+    },
+    "authors": [
+        {
+            "name": "Filip Wieland",
+            "email": "f.wieland@se15.qmul.ac.uk"
+        }
+    ]
+}

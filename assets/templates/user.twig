@@ -1,0 +1,17 @@
+{% extends "master.twig" %}
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block content %}
+<div class="profile-large">
+  <div class="author-avatar" style="background-image: url({{user.getImageUrl}})"></div>
+  <div class="profile-text">
+    <h1>{{user.name}}</h1>
+    <p>{{c.user.tagline}}</p>
+    <p class="links"><a href="mailto:{{user.email}}">Get in touch</a></p>
+  </div>
+</div>
+<h2>Recent Posts</h2>
+{% for post in user.posts %}
+  <h3 class="post-link"><a href="{{post.permalink}}">{{post.title}}</a></h3>
+{% endfor %}
+{% endblock %}
